@@ -11,8 +11,10 @@ class person:
         while True :
             Line = file.readline()
             if Line == '': break
-            temp = Line.split(' ')
+            temp = Line.split('\n')
+            temp = temp[0].split(' ')
             list.append(temp)
+        
         return list
     
     def WhoYouDontLike(self,list):
@@ -21,6 +23,7 @@ class person:
             
 PersonList = []
 no1 = person('relationMatrix.txt',0)
+
 no1.WhoYouDontLike([0,1,2])
 PersonList.append(no1)
 no2 = person('relationMatrix.txt',1)
