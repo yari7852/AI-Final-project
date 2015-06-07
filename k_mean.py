@@ -1,4 +1,4 @@
-filename='smallgroup.txt'
+filename='smallgroup2.txt'
 
 smalllist = []
 groupN=3
@@ -25,7 +25,7 @@ def getsmalllist(fileName,groupN):
         temp = temp[0].split(' ')
         smalllist.append(temp)
     return smalllist
-relation=getRelationMatrix('relationMatrix.txt')
+relation=getRelationMatrix('relationMatrix2.txt')
 print "relation=" 
 print relation
 smalllist=getsmalllist(filename,groupN)
