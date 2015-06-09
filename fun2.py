@@ -258,7 +258,9 @@ print clique
 
 f2 = open('cliqueFile.txt','w')
 for list in clique:
-	f2.write(str(list) + '\n')
+    for no in list :
+        f2.write(str(no) + ' ')
+    f2.write('\n')    
 """
 #no1.WhoYouDontLike([0,1,2])
 PersonList.append(no1)

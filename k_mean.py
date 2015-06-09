@@ -44,9 +44,9 @@ if len(smalllist)>groupN:
         print "index="
         print index
         for  g in range(groupN):
-            if str(index+1) in smalllist[g]:
+            if str(index) in smalllist[g]:
                 out=1
-                group[g].append(index+1)
+                group[g].append(index)
         if out==0:
             for g in range(groupN):
                 dis=0
@@ -62,7 +62,7 @@ if len(smalllist)>groupN:
                 if dis<smalldis:
                     smalldis=dis
                     temp=g               #insert into the least distance group
-            group[temp].append(index+1)
+            group[temp].append(index)
                     
     print group                
                 
