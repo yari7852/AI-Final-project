@@ -34,7 +34,7 @@ print smalllist
 group=[]
 if len(smalllist)>groupN:
     for g in range(groupN):
-        group.append([0,])
+        group.append([])
     print "group"
     print group
     for index in range(classN) :
