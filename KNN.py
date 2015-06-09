@@ -105,7 +105,7 @@ def reset(groupListTooMuch,groupListTooless,groupListF,classN):
             groupListTooless.remove(i)
             
 def KNN(K,groupList,groupN,classN,NoRelation,Love,beLoved,dualLove,relation):
-    print "it begins!!!!"
+    #print "it begins!!!!"
     groupListF = []
     groupListTooMuch = []
     groupListTooless = []
