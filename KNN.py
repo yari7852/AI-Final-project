@@ -1,4 +1,4 @@
-'''filenamex='h.txt'
+filenamex='relationMatrix.txt'
 def getRelationMatrix(fileName):
         file = open(fileName,'r')
         list = []
@@ -13,13 +13,18 @@ def getRelationMatrix(fileName):
 #groupList = [[1,2,3,0,6],[5,4],[7],[]]
 #filenamex='g.txt'
 groupList = [[],[1,3,4,5,6,7,8],[0,2]]
-filenamex='h.txt'
+filenamex='relationMatrix.txt'
 relation = getRelationMatrix(filenamex)
+
+groupList = [[0,1,5],[3],[2,4]]
+groupList = [[0,1,5],[3],[2,4]]
+
+
 groupN = 3
-classN = 4
+classN = 2
 NoRelation = 5
-Love = 1
-beLoved = 2
+Love = 2
+beLoved = 1
 dualLove = 0
 groupListF = []
 groupListTooMuch = []
@@ -30,7 +35,7 @@ for i in groupList:
     elif len(i) == classN:
         groupListF.append(i)
     elif len(i)<classN:
-        groupListTooless.append(i)'''
+        groupListTooless.append(i)
 def distanceX(x,y,relation,NoRelation,Love,beLoved,dualLove):
     if relation[x][y]=='1' and relation[y][x]=='1':
         return dualLove
@@ -46,7 +51,7 @@ def sortKey(x,List,relation,NoRelation,Love,beLoved,dualLove):
         sum = sum + distanceX(x,i,relation,NoRelation,Love,beLoved,dualLove)
     return sum
 
-def victim(groupListTooMuch,groupListF,relation,NoRelation,Love,beLoved,dualLove):
+def victim(groupListTooMuch,groupListF,relation,NoRelation,Love,beLoved,dualLove,classN):
     vic = []
     for i in groupListTooMuch:
         sortedG = sorted(i,key = lambda x : sortKey(x,i,relation,NoRelation,Love,beLoved,dualLove),reverse = True)
@@ -59,7 +64,7 @@ def victim(groupListTooMuch,groupListF,relation,NoRelation,Love,beLoved,dualLove
         groupListTooMuch.remove(i)
     return vic
 
-def knnAssign(vic,groupListTooless,groupListTooMuch,groupListF,K,relation):
+def knnAssign(vic,groupListTooless,groupListTooMuch,groupListF,K,relation,NoRelation,Love,beLoved,dualLove):
     GandD = []#[[group,distance], ...]
     assignList = []
     for i in groupListTooless:
@@ -89,7 +94,7 @@ def knnAssign(vic,groupListTooless,groupListTooMuch,groupListF,K,relation):
         ######################
         assignList[maxIndex].append(v)
         #vic.remove(v)
-    print "assignList: ",assignList
+    #print "assignList: ",assignList
     ###################################
     for i in range(len(assignList)):
         groupListTooless[i].extend(assignList[i])
@@ -105,7 +110,7 @@ def reset(groupListTooMuch,groupListTooless,groupListF,classN):
             groupListTooless.remove(i)
             
 def KNN(K,groupList,groupN,classN,NoRelation,Love,beLoved,dualLove,relation):
-    #print "it begins!!!!"
+    print "it begins!!!!"
     groupListF = []
     groupListTooMuch = []
     groupListTooless = []
@@ -118,8 +123,9 @@ def KNN(K,groupList,groupN,classN,NoRelation,Love,beLoved,dualLove,relation):
             groupListTooless.append(i)
     vic = []
     while len(groupListTooMuch)!=0:
-        vic = victim(groupListTooMuch,groupListF,relation,NoRelation,Love,beLoved,dualLove)    
-        knnAssign(vic,groupListTooless,groupListTooMuch,groupListF,K,relation)
+        vic = victim(groupListTooMuch,groupListF,relation,NoRelation,Love,beLoved,dualLove,classN)    
+        knnAssign(vic,groupListTooless,groupListTooMuch,groupListF,K,relation,NoRelation,Love,beLoved,dualLove)
         reset(groupListTooMuch,groupListTooless,groupListF,classN)
     groupListF.extend(groupListTooless)
     return groupListF
+print KNN(groupN,groupList,groupN,classN,NoRelation,Love,beLoved,dualLove,relation)
