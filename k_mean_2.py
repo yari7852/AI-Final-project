@@ -81,7 +81,7 @@ if len(smalllist)>groupN:
             group[temp].append(index)
                     
     print group                
-groupListF=KNN.KNN(groupN,group,groupN,classN,5,2,1,0,relation)  
+groupListF=KNN.KNN(groupN,group,groupN,classN/groupN,5,2,1,0,relation)  
 print groupListF       
             
             
