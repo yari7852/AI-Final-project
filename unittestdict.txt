@@ -1,0 +1,126 @@
+{	
+	"V": ["LikeN", "LikedN", "SGNO", "Personality","HatePersonality","Relation","BulliedPro"],
+	"E": [["LikeN", "Relation"],
+		["LikedN", "Relation"],
+		["SGNO", "Relation"],
+		["Personality", "BulliedPro"],
+		["HatePersonality", "BulliedPro"],
+		["Relation", "BulliedPro"]],
+	"Vdata": {
+		"BulliedPro": {
+			"ord": 6,
+			"numoutcomes": 2,
+			"vals": ["YES", "NO"],
+			"parents": ["Personality","HatePersonality","Relation"],
+			"children": None,
+			"cprob": {
+				"['Outgoing', 'Outgoing' , 'Great']": [.001,.999],
+				"['Outgoing', 'Friendly' , 'Great']": [.001,.999],
+				"['Outgoing', 'Alone' , 'Great']": [.001,.999],				
+				"['Friendly', 'Outgoing' , 'Great']": [.001,.999],
+				"['Friendly', 'Friendly' , 'Great']": [.001,.999],
+				"['Friendly', 'Alone' , 'Great']": [.001,.999],				
+				"['Alone', 'Outgoing' , 'Great']": [.001,.999],
+				"['Alone', 'Friendly' , 'Great']": [.001,.999],
+				"['Alone', 'Alone' , 'Great']": [.001,.999],				
+				"['Outgoing', 'Outgoing' , 'Soso']": [.5,.5],
+				"['Outgoing', 'Friendly' , 'Soso']": [.2,.8],
+				"['Outgoing', 'Alone' , 'Soso']": [.2,.8],				
+				"['Friendly', 'Outgoing' , 'Soso']": [.2,.8],
+				"['Friendly', 'Friendly' , 'Soso']": [.5,.5],
+				"['Friendly', 'Alone' , 'Soso']": [.2,.8],				
+				"['Alone', 'Outgoing' , 'Soso']": [.2,.8],
+				"['Alone', 'Friendly' , 'Soso']": [.2,.8],
+				"['Alone', 'Alone' , 'Soso']": [.5,.5],				
+				"['Outgoing', 'Outgoing' , 'Bad']": [.9,.1],
+				"['Outgoing', 'Friendly' , 'Bad']": [.7,.3],
+				"['Outgoing', 'Alone' , 'Bad']": [.7,.3],				
+				"['Friendly', 'Outgoing' , 'Bad']": [.7,.3],
+				"['Friendly', 'Friendly' , 'Bad']": [.9,.1],
+				"['Friendly', 'Alone' , 'Bad']": [.7,.3],				
+				"['Alone', 'Outgoing' , 'Bad']": [.7,.3],
+				"['Alone', 'Friendly' , 'Bad']": [.7,.3],
+				"['Alone', 'Alone' , 'Bad']": [.9,.1]	
+			}
+		},
+		
+		"Relation": {
+			"ord": 5,
+			"numoutcomes": 3,
+			"vals": ["Great", "Soso", "Bad"],
+			"parents": ["LikeN", "LikedN","SGNO"],
+			"children": ["BulliedPro"],
+			"cprob": {
+				"['Big', 'Big' , 'Big']": [.99, .009, .001],
+				"['Big', 'Big' , 'Mid']": [.95, .04, .01],
+				"['Big', 'Big' , 'Small']": [.93, .06, .01],
+				"['Big', 'Mid' , 'Big']": [.009, .99, .001],
+				"['Big', 'Mid' , 'Mid']": [.04, .95, .01],
+				"['Big', 'Mid' , 'Small']": [.09, .9, .01],
+				"['Big', 'Small' , 'Big']": [.3, .6, .1],
+				"['Big', 'Small' , 'Mid']": [.2, .7, .1],
+				"['Big', 'Small' , 'Small']": [.01, .19, .8],
+				"['Mid', 'Big' , 'Big']": [.99, .009, .001],
+				"['Mid', 'Big' , 'Mid']": [.95, .04, .01],
+				"['Mid', 'Big' , 'Small']": [.93, .06, .01],
+				"['Mid', 'Mid' , 'Big']": [.009, .99, .001],
+				"['Mid', 'Mid' , 'Mid']": [.04, .95, .01],
+				"['Mid', 'Mid' , 'Small']": [.09, .9, .01],
+				"['Mid', 'Small' , 'Big']": [.1, .6, .3],
+				"['Mid', 'Small' , 'Mid']": [.1, .4, .5],
+				"['Mid', 'Small' , 'Small']": [.01, .19, .8],
+				"['Small', 'Big' , 'Big']": [.99, .009, .001],
+				"['Small', 'Big' , 'Mid']": [.95, .04, .01],
+				"['Small', 'Big' , 'Small']": [.93, .06, .01],
+				"['Small', 'Mid' , 'Big']": [.009, .99, .001],
+				"['Small', 'Mid' , 'Mid']": [.04, .95, .01],
+				"['Small', 'Mid' , 'Small']": [.09, .9, .01],
+				"['Small', 'Small' , 'Big']": [.01, .09, .9],
+				"['Small', 'Small' , 'Mid']": [.01, .04, .95],
+				"['Small', 'Small' , 'Small']": [.001, .009, .99]
+            }
+		},
+		
+		"HatePersonality": {
+			"ord": 4,
+			"numoutcomes": 3,
+			"vals": ["Outgoing", "Friendly" , "Alone"],
+			"parents": None,
+			"children": ["BulliedPro"],
+			"cprob": [.6, .3, .1]
+		},
+		
+		"Personality": {
+			"ord": 3,
+			"numoutcomes": 3,
+			"vals": ["Outgoing", "Friendly" , "Alone"],
+			"parents": None,
+			"children": ["BulliedPro"],
+			"cprob":  [.6, .3 , .1]
+		},
+		"SGNO": {
+			"ord": 2,
+			"numoutcomes": 3,
+			"vals": ["Big", "Mid","Small"],
+			"parents": None,
+			"children": ["Relation"],
+			"cprob":  [.6, .3, .1]
+		},
+		"LikedN": {
+			"ord": 1,
+			"numoutcomes": 3,
+			"vals": ["Big", "Mid","Small"],
+			"parents": None,
+			"children": ["Relation"],
+			"cprob":  [.6, .3, .1]
+		},
+		"LikeN": {
+			"ord": 0,
+			"numoutcomes": 3,
+			"vals": ["Big", "Mid","Small"],
+			"parents": None,
+			"children": ["Relation"],
+			"cprob":  [.6, .3 , .1]
+		}
+	}
+}
