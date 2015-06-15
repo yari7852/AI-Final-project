@@ -82,6 +82,7 @@ if len(smalllist)>groupN:
                     
     print group                
 groupListF=KNN.KNN(groupN,group,groupN,classN/groupN,5,2,1,0,relation)  
+
 print groupListF       
             
             
