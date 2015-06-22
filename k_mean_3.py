@@ -23,7 +23,7 @@ def getRelationMatrix(fileName):
             if Line == '': break
             temp = Line.split('\n')
             temp = temp[0].split(' ')
-            
+            temp.pop()
             list.append(temp)
         
         return list
